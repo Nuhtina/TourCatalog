@@ -13,6 +13,8 @@ namespace TourCatalog.Data.Migrations
 
         }
 
+
+
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
