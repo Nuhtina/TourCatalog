@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TourCatalog.Data;
 
@@ -11,9 +12,11 @@ using TourCatalog.Data;
 namespace TourCatalog.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250324125401_sghgy")]
+    partial class sghgy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -281,75 +284,6 @@ namespace TourCatalog.Data.Migrations
                     b.ToTable("Town");
                 });
 
-            modelBuilder.Entity("TourCatalog.Models.Transport", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Transport");
-                });
-
-            modelBuilder.Entity("TourCatalog.Models.TripCatalog", b =>
-                {
-                    b.Property<int>("ID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CountryID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HotelID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("TownID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TransportID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TypeID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("TripCatalog");
-                });
-
-            modelBuilder.Entity("TourCatalog.Models.Type_tour", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Type_tour");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -399,49 +333,6 @@ namespace TourCatalog.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TourCatalog.Models.TripCatalog", b =>
-                {
-                    b.HasOne("TourCatalog.Models.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TourCatalog.Models.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TourCatalog.Models.Town", "Town")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TourCatalog.Models.Transport", "Transport")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TourCatalog.Models.Type_tour", "Type_tours")
-                        .WithMany()
-                        .HasForeignKey("ID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Hotel");
-
-                    b.Navigation("Town");
-
-                    b.Navigation("Transport");
-
-                    b.Navigation("Type_tours");
                 });
 #pragma warning restore 612, 618
         }
