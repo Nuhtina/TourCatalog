@@ -1,0 +1,90 @@
+﻿@model TourCatalog.Models.TripCatalog
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TripCatalog</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CountryID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountryID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Country)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Country.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TownID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TownID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Town)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Town.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TransportID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TransportID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Transport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Transport.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TypeID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TypeID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Type_tours)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Type_tours.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HotelID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HotelID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hotel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hotel.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

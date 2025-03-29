@@ -15,5 +15,6 @@ namespace TourCatalog.Data
         public DbSet<Town> Town { get; set; }
         public DbSet<Transport> Transport { get; set; }
         public DbSet<TripCatalog> TripCatalog { get; set; }
+        public DbSet<TourCatalog.Models.Type_tour> Type_tour { get; set; } = default!;
     }
 }
